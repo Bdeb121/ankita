@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ankita Star</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                user-select: none;
+            }
+            body {
+                background: #f1f3ff;
+                font-family: 'Nunito', sans-serif;
+            }
+            body::-webkit-scrollbar {
+                display: none;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 32px;   
+            }
+            .card {
+                font-size: 32px;
+                background: #ffffff;
+                border-radius: 20px;
+                padding: 30px 24px 20px;
+                transition: all 0.4s ease-in-out;
+                box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+            }
+            .card .appear {
+                opacity: 0.05;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card"></div>
+        </div>
+
+        <script>
+            let card = document.querySelector('.card');
+
+            let string = '';
+            let n = 10;
+            let m = 5;
+
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if (
+                        i === 1 ||
+                        i === 2 && j > 1 && j < n ||
+                        i === n - 1 && j > 1 && j < n ||
+                        i === n ||
+                        j === n / 2 ||
+                        j === n / 2 + 1 
+                    ) {
+                        // Printing Star
+                        string += `<span>&nbsp;*&nbsp;</span>`;
+                    } else {
+                        // Printing Space
+                        string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                    }
+                }
+                string += '<br>';
+            }
+
+            // string += '<br>';
+
+            for (let i = 1; i <= 1; i++) {
+                for (let j = 1; j <= n; j++) {
+                    string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                }
+                string += '<br>';
+            }
+            for (let i = 1; i <= 1; i++) {
+                for (let j = 1; j <= 5; j++) {
+                    if ( i === 1 && j > 1 && j < 4 ) {
+                        string += `<span>&nbsp;*&nbsp;</span>`;
+                    } else {
+                        string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                    }
+                }
+                for (let j = 1; j <= 5; j++) {
+                    if ( i === 1 && j > 2 && j < 5 ) {
+                        string += `<span>&nbsp;*&nbsp;</span>`;
+                    } else {
+                        string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                    }
+                }
+                string += '<br>';
+            }
+            for (let i = 1; i <= 1; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if ( 
+                        i === 1 && j < n/2 ||
+                        i === 1 && j > n/2 + 1
+                    ) {
+                        string += `<span>&nbsp;*&nbsp;</span>`;
+                    } else {
+                        string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                    }
+                }
+                string += '<br>';
+            }
+            for (let i = 1; i <= m; i++) {
+                // Printing Space
+                for (let j = 1; j < i; j++) {
+                    string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                }
+                // Printing Star 
+                for (let j = i; j <= m; j++) {
+                    string += `<span>&nbsp;*&nbsp;</span>`;
+                }
+                for (let j = i; j <= m; j++) {
+                    string += `<span>&nbsp;*&nbsp;</span>`;
+                }
+                // Printing Space
+                for (let j = 1; j < i; j++) {
+                    string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                }
+                string += '<br>';
+            }
+            for (let i = 1; i <= 1; i++) {
+                for (let j = 1; j <= n; j++) {
+                    string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                }
+                string += '<br>';
+            }
+
+            // string += '<br>';
+
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if (
+                        i === n - 1 ||
+                        i === n && j > 1 && j < n ||
+                        j === 1 && i < n ||
+                        j === 2 && i > 1 ||
+                        j === n - 1 && i > 1 ||
+                        j === n && i < n
+                    ) {
+                        // PrintingStar
+                        string += `<span>&nbsp;*&nbsp;</span>`;
+                    } else {
+                        // Printing Space
+                        string += `<span class="appear">&nbsp;*&nbsp;</span>`;
+                    }
+                }
+                string += '<br>';
+            }
+
+            card.innerHTML = string;
+        </script>
+    </body>
+</html>
